@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/html" id="rowtemplate"> 
+        <tr>
+            <td>{{name}}</td>
+            <td>{{price}}</td>
+        </tr>
+    </script>
+</head>
+<body>
+    <header>
+        <input type="text" >
+        <button onclick="search()">Search</button>
+    </header>
+
+    <section>
+        <table>
+
+        </table>
+    </section>
+    
+    <script>
+        var data = [
+            {  name: 'abce', price: 123},
+            {  name: 'abce', price: 123},
+            {  name: 'abce', price: 123},
+            {  name: 'abce', price: 123}
+        ]
+        function search() 
+        {
+            var keyword = document.querySelector('header input').value;
+            document.querySelector('tabl;e').innerHTML = ""
+            var myTemplate = document.querySelector('#rowtemplate').innerHTML;
+            for (let i = 0; i < data.length; i++) {
+                const product = data[i];
+                if (product.name.indexOf(keyword) > -1) {
+                    var myhtml = myTemplate.replace('{{name}}',product.name).replace('{{price}}', product.price)
+                    document.querySelector('table').innerHTML() += myhtml;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
